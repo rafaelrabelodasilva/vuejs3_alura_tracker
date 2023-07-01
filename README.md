@@ -1,22 +1,53 @@
-# O projeto
+# O projeto 📚
 
-Neste projeto que desenvolvi com o curso da Alura, utilizei o famoso framework Vue, conhecido por sua facilidade de uso, eficiência e escalabilidade, tanto em interfaces simples quanto complexas. O Vue fornece um modelo de programação declarativo e é baseado em HTML, CSS e JavaScript.
+Utilizei o framework Vue 3 com TypeScript para desenvolver o "Alura Tracker", aplicação que registra o tempo decorrido de cada tarefa informada. Por exemplo, a estudar Vue.JS.
+O usuário poderá iniciar uma tarefa onde o cronômetro irá começar e ao finalizar a tarefa, ela será adicionada a uma lista.
+Quando finalizado a aplicação, a mesma foi publicada (deploy) através do Versel.
 
-No decorrer desse projeto, tive a oportunidade de aprender sobre o Vue.js, aprofundar-me na versão 3 e construir minha primeira aplicação do zero.
+Abaixo gif exibindo a aplicação:
 
-Durante todo o percurso, pude percorrer todas as etapas do ciclo de vida de uma aplicação, desde o básico até o avançado, aprimorando minha curva de aprendizado em Front-end.
+![gif](./img_readme/exibindo_aplicacao_finalizada.gif "Exibindo aplicação finalizada")
 
-Ao longo desse caminho, explorei desde a Options API até a Composition API, abordando também temas complexos como gerenciamento de estado com Vuex, roteamento com Vue Router, requisições à API com Axios, entre outros.
+# Dependências ⚙️
 
-Tudo isso foi realizado com o objetivo de aprender na prática e me preparar para dominar um dos frameworks mais populares no mercado de desenvolvimento web.
+Para instalar as dependências deste projeto basta digitar o comando abaixo no terminal:
 
-# Como o projeto foi iniciado
+`$ npm intall`
 
-* Instalado o vue CLI
+* Dependências utilizadas no projeto: 
+
+1. Vue CLI<br>
+Digitar o comando abaixo no terminal:
+`$ npm install -g @vue/cli`
+
+2. Bulma (Framework CSS)<br>
+Colar o link dentro do nosso “index.html”
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+```
+
+3. Font awesome (Ícones)<br>
+No diretório do projeto inserir o comando abaixo no terminal:
+`$ npm i --save-dev @fortawesome/fontawesome-free`
+
+No arquivo "main.ts" fazer o import do CSS do Font Awesome, o arquivo ficará similar ao exemplo abaixo:
+
+```
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import '@fortawesome/fontawesome-free/css/all.css'
+
+createApp(App).mount('#app')
+```
+
+# Como o projeto foi iniciado 📝
+
+1. Instalado o vue CLI:
 
 `$ npm install -g @vue/cli`
 
-* Criado o projeto com o vue CLI
+2. Criado o projeto com o vue CLI:
 
 `$ vue create alura_tracker`
 
@@ -34,39 +65,13 @@ JSX)? Yes
 ? Save this as a preset for future projects? N
 ```
 
-* Após finalizado basta acessar o novo diretório e executar o servidor para ser utilizado em desenvolvimento
+3. Após finalizado basta acessar o novo diretório e executar o servidor para ser utilizado em desenvolvimento:
 
-`$ yarn serve`
+`$ npm run serve`
 
+# Gerar um build manual da aplicação Vue 👨‍💻
 
-# Dependências
-
-* Vue CLI
-
-* Bulma (Framework CSS)<br>
-Colar o link dentro do nosso “index.html”
-```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-```
-
-* Font awesome (Ícones)<br>
-No diretório do projeto inserir o comando abaixo no terminal:
-`$ npm i --save-dev @fortawesome/fontawesome-free`
-
-No arquivo "main.ts" fazer o import do CSS do Font Awesome, o arquivo ficará similar ao exemplo abaixo:
-
-```
-import { createApp } from 'vue'
-import App from './App.vue'
-
-import '@fortawesome/fontawesome-free/css/all.css'
-
-createApp(App).mount('#app')
-```
-
-# Fazendo o build da aplicação Vue (manualmente)
-
-Quando o app está finalizado é necessário publicá-lo e deixá-lo disponível para o mundo.
+Quando o app está finalizado é necessário publicá-lo e deixá-lo disponível para todos.<br>
 Ao digitar o comando abaixo no diretório principal do projeto, irá rodar e começar a entender tudo que fizemos e começar a compilar todos os nossos componentes.
 
 `$ npm run build`
@@ -86,39 +91,45 @@ Após finalizado basta rodar no terminal o script abaixo ainda no diretório "di
 
 Após finalizado estará ouvindo na porta 8080. Lembrando que não temos aquele hot reload, ele não vai ficar tentando comunicar para atualizar automaticamente, porque essa é nossa versão de produção.
 
-Conforme criamos nosso projeto utilizando o CLI do Vue, ele já entregou tudo isso pronto, não precisamos configurar nada. Ele vai utilizar o Babel, o webpack tudo por baixo dos panos e vai compilar a nossa aplicação de uma forma que consigamos subir num servidor web.
+Conforme criamos o projeto utilizando o CLI do Vue, ele já entregou tudo isso pronto, não precisamos configurar nada. Ele vai utilizar o Babel, o webpack tudo por baixo dos panos e vai compilar a nossa aplicação de uma forma que consigamos subir num servidor web.
 
-Fizemos um teste local usando o pacote do NPM HTTP server que vai simular. Agora precisamos pensar num ambiente de verdade. Nós testamos, fizemos o build, vimos que tudo funciona. Mas agora precisamos deixar isso disponível para o mundo, na internet.
+Fizemos um teste local usando o pacote do npm "HTTP server" que vai simular. Agora precisamos pensar num ambiente de verdade. Nós testamos, fizemos o build, vimos que tudo funciona. Mas agora precisamos deixar isso disponível para o mundo, na internet.
 
-# Publicando o app Vue
+# Publicar a aplicação Vue no Vercel ✍️
 
-Será utilizado o <a href='https://vercel.com/dashboard'>Versel</a>.
-Deve ser criado uma conta e logado no site.
-Autorizar o github (onde repositório da aplicação está armazenada)
+Tudo que fizemos ou faríamos manualmente, o Vesel fará automaticamente. Então ele vai copiar o código fonte, vai fazer o build, antes de fazer o build ele vai baixar as dependências do projeto, então vai rodar o `npm i` para instalar tudo que está configurado como dependência no nosso "package.json".
 
-Clicar no botão "Continue to Dashboard"
+Depois que ele fizer isso, vai rodar o `npm run build` para fazer a preparação e a compilação do nosso código. Fizemos utilizando o TypeScript e utilizando arquivos `.vue` e isso o nosso navegador não entende.
 
-<!-- # alura_tracker
+Ele terá que transpilar, compilar e transformar tudo isso naqueles arquivos que vimos quando fizemos manualmente, um CSS de todas as dependências e um CSS gerado por nós; e a mesma coisa com JavaScript. Temos um JavaScript com todas as dependências do projeto e outro com o código que fizemos e geramos.
 
-## Project setup
-```
-npm install
-```
+Então ele fará tudo isso, fará o build e vai publicar a aplicação, deixando-a disponível para conseguirmos acessar.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Processo para publicar a aplicação 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1. Será utilizado o <a href='https://vercel.com/dashboard'>Versel</a>.<br>
+Após criar uma conta e logar no Versel é necessário vincular o repositório do github.<br> **Lembrando que é necessário commitar as alterações para que seja coletado pelo Versel os arquivos mais atuais.**<br>
+Autorizar o github (onde repositório da aplicação está armazenada).
 
-### Lints and fixes files
-```
-npm run lint
-```
+2. Clicar no botão "Import":
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/). -->
+![img](./img_readme/import_github.png "Importando um projeto do github")
+
+3. Será exibido a tela de configuração do deploy. Se necessário pode ser alterado no nome do projeto. Tudo já estará previamente configurado, apenas é necessário clicar no botão "Deploy":
+
+![img](./img_readme/confirmando_deploy.png "Tela configuração deploy")
+
+4. Será iniciado o deploy da aplicação:
+
+![img](./img_readme/deploy_andamento.png "Deploy em andamento")
+
+5. Será exibido a imagem da sua aplicação. Se esta imagem estiver em branco é muito provável que você esqueceu de commitar as alterações antes de fazer o deploy. Se a imagem for exibida então basta clicar no botão "Continue to Dashboard":
+
+![img](./img_readme/acessar_dashboard.png "Acessar dashboard")
+
+6. Neste tela será exibido algumas informações importantes. Para acessar o ambiente da aplicação publicada basta clicar no botão "Visit":
+
+![img](./img_readme/dashboard.png "Exibindo dashboard")
+
+7. Será exibido a aplicação:
+![img](./img_readme/aplicacao_online.png "Exibindo aplicação online")
